@@ -1,5 +1,9 @@
-from app.app import hello
+from app.app import app
 
 
 def test_hello():
-    assert hello() == "Hello from DevOps practice!"
+    client = app.test_client()
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert response.data == b"Hello from DevOps Practice!"
