@@ -37,3 +37,12 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t devops-practice:${{ github.sha }} .
+
+      - name: Run Docker container
+        run: |
+          docker run -d --name devops-test -p 5000:5000 devops-practice:${{ github.sha }}
+
+      - name: Test Docker container
+        run: |
+          sleep 3
+          curl http://localhost:5000
