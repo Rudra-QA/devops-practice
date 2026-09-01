@@ -6,4 +6,4 @@ def test_hello():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert response.data == b"Hello from DevOps Practice!"
+    assert response.data == b"Hello from DevOps Practice - Version 2!"
